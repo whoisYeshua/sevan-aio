@@ -1,0 +1,7 @@
+{
+	"compilerOptions": {
+		/* Modules */
+		"module": "nodenext" /* Specify what module code is generated. */,
+		"allowImportingTsExtensions": true
+	}
+}

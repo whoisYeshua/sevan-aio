@@ -1,0 +1,4 @@
+{
+	"include": ["./src/**/*"],
+	"extends": ["@sevan-aio/tsconfig/tsconfig.base.json", "@sevan-aio/tsconfig/tsconfig.node.json"]
+}

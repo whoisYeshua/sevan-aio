@@ -1,0 +1,40 @@
+{
+	"name": "sevan-aio",
+	"description": "Sevan monorepo",
+	"license": "MIT",
+	"type": "module",
+	"private": true,
+	"workspaces": [
+		"packages/*",
+		"tools/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"test": "turbo run test",
+		"format": "turbo run format",
+		"format:prettier": "turbo run format:prettier",
+		"lint": "turbo run lint --parallel",
+		"lint:ci": "turbo run lint:ci --parallel",
+		"lint:prettier": "turbo run lint:prettier",
+		"lint:ts": "turbo run lint:ts --parallel",
+		"local-release": "changeset version && changeset publish",
+		"clean": "turbo run clean && rimraf .turbo node_modules",
+		"prepare": "turbo telemetry disable"
+	},
+	"devDependencies": {
+		"@arethetypeswrong/cli": "0.15.4",
+		"@changesets/cli": "2.27.7",
+		"@types/node": "22.5.1",
+		"prettier": "3.3.3",
+		"publint": "0.2.10",
+		"rimraf": "6.0.1",
+		"tsup": "8.2.4",
+		"turbo": "2.1.1",
+		"typescript": "5.5.4"
+	},
+	"packageManager": "npm@10.8.2",
+	"engines": {
+		"node": ">=22.6",
+		"npm": ">=10"
+	}
+}
