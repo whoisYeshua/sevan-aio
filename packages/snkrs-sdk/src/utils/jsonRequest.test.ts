@@ -12,19 +12,19 @@ describe('jsonRequest', () => {
 		method: 'GET',
 	}
 
-	let originalConsoleError = global.console.error
-	let originalFetch = global.fetch
-	let originalSetTimeout = global.setTimeout
-	let originalAbortSignal = global.AbortSignal
+	const originalConsoleError = global.console.error
+	const originalFetch = global.fetch
+	const originalSetTimeout = global.setTimeout
+	const originalAbortSignal = global.AbortSignal
 
 	let mockedConsoleError: Mock<VoidFunction>
-	let mockedFetch: Mock<typeof fetch>
-	let mockedSetTimeout: Mock<typeof setTimeout>
+	let mockedFetch: Mock<typeof originalFetch>
+	let mockedSetTimeout: Mock<typeof originalSetTimeout>
 
 	beforeEach(() => {
 		mockedConsoleError = mock.fn()
-		mockedFetch = mock.fn(fetch)
-		mockedSetTimeout = mock.fn(setTimeout)
+		mockedFetch = mock.fn(originalFetch)
+		mockedSetTimeout = mock.fn(originalSetTimeout)
 
 		// Mock gloabal methods
 		global.console.error = mockedConsoleError // to prevent junks in console during test

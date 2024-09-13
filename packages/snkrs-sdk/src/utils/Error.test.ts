@@ -22,4 +22,17 @@ describe('CustomError', () => {
 		assert.strictEqual(CustomError.isAbortError(nonError), false)
 		assert.strictEqual(CustomError.isTimeoutError(nonError), false)
 	})
+
+	test('createAbortError should return the provided reason if given', () => {
+		const reason = new Error('Custom abort reason')
+		const result = CustomError.createAbortError(reason)
+		assert.strictEqual(result, reason)
+	})
+
+	test('createAbortError should return a new DOMException if no reason is provided', () => {
+		const result = CustomError.createAbortError()
+		assert.strictEqual(result.name, 'AbortError')
+		assert.strictEqual(result.message, 'This operation was aborted')
+		assert.ok(result instanceof DOMException)
+	})
 })
