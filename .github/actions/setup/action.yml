@@ -1,0 +1,16 @@
+name: Setup Node.js
+description: Checks out the repository, sets up Node.js, and installs dependencies
+
+runs:
+  using: composite
+
+  steps:
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+        cache: npm
+
+    - name: Install dependencies 🔧
+      shell: bash
+      run: npm ci
